@@ -1,4 +1,6 @@
 from database import Base
+from pydantic import BaseModel
+from datetime import datetime
 
 from sqlalchemy import Column, Integer, String, DateTime, func
 
@@ -13,3 +15,20 @@ class Task(Base):
     # timezone=True допускает поправку на временную зону
     # server_default=func.now() устанавливает текущее время автоматически
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+
+class TaskCreate(BaseModel):
+    name: str 
+    description: str
+
+
+class TaskUpdate(BaseModel):
+    name: str | None = None
+    description: str | None = None
+
+
+class TaskResponse(BaseModel):
+    id: int 
+    name: str 
+    description: str 
+    created_at: datetime
