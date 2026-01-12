@@ -1,3 +1,2 @@
 .venv/
-src/__pychache__/
-api/__pycache__/
+__pycache__/
