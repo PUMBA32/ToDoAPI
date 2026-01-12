@@ -75,7 +75,7 @@ def delete_task(id: int, db: Session = Depends(get_db)):
     db.commit()
 
     return JSONResponse(
-        status_code=204, 
-        detail = {
+        status_code=200, 
+        content = {
         "message": "Task deleted successfully"
     })

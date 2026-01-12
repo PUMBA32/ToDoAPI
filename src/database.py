@@ -15,5 +15,4 @@ engine = create_engine(
 
 class Base(DeclarativeBase): pass
 
-
 SessionLocal = sessionmaker(bind=engine, autoflush=False)
